@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Foodie Recipes</title>
+    <title>Food Explorer - Popular Foods by Place</title>
     <link rel="stylesheet" href="/static/styles.css">
 </head>
 <body>
 
 <div class="container">
-    <h2>Welcome to Foodie Recipes</h2>
+    <h2>🍽️ Travel Food Guide</h2>
+    <p>Explore popular dishes from different places before your trip.</p>
     <a href="/logout" class="logout">Logout</a>
 
     {% for recipe in recipes %}
         <div class="card">
             <h3>{{ recipe.title }}</h3>
+            <p><strong>Place:</strong> {{ recipe.place }}</p>
             <p>{{ recipe.description }}</p>
 
-            <h4>Reviews:</h4>
+            <h4>Traveller Reviews:</h4>
             {% for review in recipe.reviews %}
                 <div class="review">
                     ⭐ {{ review.rating }} — {{ review.user }}
