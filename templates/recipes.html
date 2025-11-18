@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Foodie Recipes</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Welcome to Foodie Recipes</h2>
+    <a href="/logout" class="logout">Logout</a>
+
+    {% for recipe in recipes %}
+        <div class="card">
+            <h3>{{ recipe.title }}</h3>
+            <p>{{ recipe.description }}</p>
+
+            <h4>Reviews:</h4>
+            {% for review in recipe.reviews %}
+                <div class="review">
+                    ⭐ {{ review.rating }} — {{ review.user }}
+                    <p>{{ review.comment }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+
+</body>
+</html>
