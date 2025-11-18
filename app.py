@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session
 
 app = Flask(__name__)
-app.secret_key = "simple-secret"   # used for login session
+app.secret_key = "simple-secret"   # for sessions
 
 # Simple user for login
 USER = {
@@ -43,20 +43,32 @@ def login():
     if request.method == "POST":
         email = request.form.get("email")
         password = request.form.get("password")
-
         if email == USER["email"] and password == USER["password"]:
             session["user"] = email
             return redirect("/foods")
         else:
             return render_template("login.html", error="Invalid Credentials")
-        
     return render_template("login.html")
 
 
-@app.route("/foods")
+@app.route("/foods", methods=["GET", "POST"])
 def recipes():
     if "user" not in session:
         return redirect("/")
+
+    if request.method == "POST":
+        recipe_index = int(request.form.get("recipe_index"))
+        comment = request.form.get("comment")
+        rating = int(request.form.get("rating"))
+        username = session["user"]
+        
+        # Add new review to the recipe
+        RECIPES[recipe_index]["reviews"].append({
+            "user": username,
+            "comment": comment,
+            "rating": rating
+        })
+
     return render_template("recipes.html", recipes=RECIPES)
 
 
