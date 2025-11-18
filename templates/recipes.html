@@ -8,7 +8,7 @@
 
 <div class="container">
     <h2>🍽️ Travel Food Guide</h2>
-    <p>Explore popular dishes from different places before your trip.</p>
+    <p>Explore popular dishes and share your feedback with other travellers!</p>
     <a href="/logout" class="logout">Logout</a>
 
     {% for recipe in recipes %}
@@ -24,6 +24,14 @@
                     <p>{{ review.comment }}</p>
                 </div>
             {% endfor %}
+
+            <h4>Add Your Review:</h4>
+            <form method="POST">
+                <input type="hidden" name="recipe_index" value="{{ loop.index0 }}">
+                <input type="text" name="comment" placeholder="Your comment" required>
+                <input type="number" name="rating" placeholder="Rating 1-5" min="1" max="5" required>
+                <button type="submit">Submit Review</button>
+            </form>
         </div>
     {% endfor %}
 </div>
