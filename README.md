@@ -11,10 +11,6 @@ It includes:
 
 ✔ Each recipe includes description + user reviews
 
-✔ Simple folder structure (easy for beginners)
-
-✔ No database required — uses in-memory data
-
 🗂️ Project Structure
 foodie-website/
 │
@@ -28,9 +24,9 @@ foodie-website/
 🚀 Features
 🔐 1. User Login System
 
-A simple login form (email + password).
+A login form (email + password).
 
-Validates using a dummy user stored in the backend.
+Validates using a user stored in the backend.
 
 Uses Flask session to maintain login.
 
@@ -46,7 +42,7 @@ Description
 
 List of reviews (star rating + comment)
 
-🎨 3. Clean & Simple UI
+🎨 3.  UI
 
 Designed using basic CSS.
 
@@ -64,9 +60,7 @@ Jinja2 templates (Rendering pages)
 
 Flask session (Login state)
 
-📚 Step-By-Step Implementation (What I Did)
-
-This section explains your full work in simple steps — perfect for interviews.
+📚 Step-By-Step Implementation
 
 ✅ Step 1: Set up project folder
 
@@ -95,8 +89,7 @@ Login route (/)
 Recipe page route (/recipes)
 
 Logout route (/logout)
-
-Dummy user data
+ user data
 
 List of recipes + reviews
 
